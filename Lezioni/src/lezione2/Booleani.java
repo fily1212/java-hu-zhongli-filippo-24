@@ -52,6 +52,8 @@ public class Booleani {
         numero = Integer.parseInt(tastiera.nextLine());
         condizione = (numero % 4 == 0) && !(numero % 100 == 0) || (numero % 400 == 0)  ;
         System.out.println(condizione);
+        String nome = "Filippo";
+        System.out.println(nome == "AFilippo".substring(1));
 
     }
 }
