@@ -68,6 +68,13 @@ public class Esercizi {
                 // la stampo
                 System.out.print(temp.get(i) + " ");
         }
+        // for each
+        // for (TIPO nome_variabile : nome_lista)
+        for(int num: temp){
+            if(num > 10)
+                System.out.println(num);
+        }
+
 
         //es4
         int sommaEs4 = 0;
