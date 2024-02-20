@@ -9,5 +9,7 @@ public class EsempioBottiglia {
         System.out.println(b1);
         b1.riempi(5);
         System.out.println(b1);
+        b1.svuota(1000);
+        System.out.println(b1);
     }
 }

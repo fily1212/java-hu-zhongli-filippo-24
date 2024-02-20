@@ -18,6 +18,10 @@ public class Bottiglia {
         this.quantita += quantita;
     }
 
+    public void svuota(int quantita){
+        this.quantita -= quantita;
+    }
+
     @Override
     public String toString() {
         return "B - " +
