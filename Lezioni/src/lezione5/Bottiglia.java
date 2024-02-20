@@ -1,8 +1,8 @@
 package lezione5;
 
 public class Bottiglia {
-    int capacita;
-    int quantita;
+    private int capacita;
+    private int quantita;
 
     public Bottiglia(int capacita) {
         this.capacita = capacita;
@@ -16,10 +16,17 @@ public class Bottiglia {
 
     public void riempi(int quantita){
         this.quantita += quantita;
+        if(this.quantita>capacita)
+            this.quantita = capacita;
+        //this.quantita = Math.min(this.capacita, this.quantita + quantita);
     }
 
     public void svuota(int quantita){
         this.quantita -= quantita;
+        if(this.quantita<0)
+            this.quantita = 0;
+
+        //this.quantita = Math.max(0,this.quantita - quantita);
     }
 
     @Override
