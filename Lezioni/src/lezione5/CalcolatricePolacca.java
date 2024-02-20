@@ -20,9 +20,10 @@ public class CalcolatricePolacca {
                         continua = false;
                     }else {
                         int n1 = stack.get(stack.size() - 1);
-                        int n2 = stack.get(stack.size() - 2);
                         stack.remove(stack.size() - 1);
-                        stack.remove(stack.size() - 2);
+
+                        int n2 = stack.get(stack.size() - 1);
+                        stack.remove(stack.size() - 1);
                         stack.add(n1+n2);
                     }
                     break;
