@@ -13,5 +13,9 @@ public class EsempioBottiglia {
         System.out.println(b1);
        // b1.quantita = 9999999;
         System.out.println(b1);
+        Bottiglia b2 = new Bottiglia(500);
+        b2.riempi(200);
+        b2.svuota(150);
+        
     }
 }
