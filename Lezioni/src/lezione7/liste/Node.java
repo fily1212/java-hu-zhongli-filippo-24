@@ -12,8 +12,9 @@ public class Node extends List{
     @Override
     public void add(int n) {
         if(next instanceof Nil){
-
-        }
+            next = new Node(n,next);
+        }else
+            next.add(n);
 
     }
 
