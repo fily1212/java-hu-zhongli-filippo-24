@@ -2,12 +2,12 @@ package lezione7.liste;
 
 public class Nil extends List{
     @Override
-    public void add() {
+    public void add(int n) {
 
     }
 
     @Override
-    public int get() {
+    public int get(int n) {
         return 0;
     }
 

@@ -10,13 +10,19 @@ public class Node extends List{
     }
 
     @Override
-    public void add() {
+    public void add(int n) {
+        if(next instanceof Nil){
+
+        }
 
     }
 
     @Override
-    public int get() {
-        return 0;
+    public int get(int n) {
+        if(n==0)
+            return value;
+        else
+            return next.get(n-1);
     }
 
     @Override
