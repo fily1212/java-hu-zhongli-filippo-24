@@ -9,7 +9,7 @@ public class Main {
 
         poligoni.add(new Quadrato(10));
         poligoni.add(new Rettangolo(10,20));
-        poligoni.add(new Poligono());
+  //      poligoni.add(new Poligono());
 
         for(Poligono p : poligoni){
             System.out.println(p.area());
