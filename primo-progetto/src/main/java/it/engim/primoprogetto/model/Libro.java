@@ -1,8 +1,14 @@
 package it.engim.primoprogetto.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+@Entity
 public class Libro {
     private String titolo;
     private String autore;
+
+    @Id
     private int id;
     private int anno;
 
