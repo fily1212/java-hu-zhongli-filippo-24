@@ -1,18 +1,20 @@
 package it.engim.esempiojdbc;
 import java.sql.*;
 
-public class EsempioJDBC {
+public class EsempioPrepareStatement {
     static final String DB_URL = "jdbc:mysql://localhost/java";
     static final String USER = "java";
     static final String PASS = "java";
-    static final String QUERY = "SELECT id, autore, titolo, anno FROM libro";
-    // QUERY = "Select * from utenti where email = '" + qualcosa.getEmail() +
-    // "' and password = " + qualcosa.getPassword();
     public static void main(String[] args) {
         // Open a connection
-        try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(QUERY);) {
+        PreparedStatement pstmt = null;
+        try{
+            Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            String SQL = "SELECT id, autore, titolo, anno FROM libro where autore = ? and anno > ?";
+            pstmt = conn.prepareStatement(SQL);
+            pstmt.setString(1,"Dante Alighieri");
+            pstmt.setInt(2, 1000);
+            ResultSet rs = pstmt.executeQuery();
             // Extract data from result set
             while (rs.next()) {
                 // Retrieve by column name
