@@ -19,7 +19,7 @@ public class Todo {
     private Priorita priorita;
     private boolean completato;
 
-    enum Priorita{
+    public enum Priorita{
         ALTA, NORMALE, BASSA
     }
 
