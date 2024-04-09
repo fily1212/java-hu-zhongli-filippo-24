@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 import java.util.List;
 
-@RestController("/todo")
+@RestController
 public class TodoController {
 
     @Autowired
     TodoRepository todoRepository;
 
-    @PostMapping( "/add")
+    @PostMapping( "/todo/add")
     public String addTodo(@RequestBody TodoAddRequest todoRequest){
         Todo todo = new Todo();
         todo.setTitolo(todoRequest.getTitolo());
@@ -34,7 +34,7 @@ public class TodoController {
         todoRepository.save(todo);
         return "OK";
     }
-    @GetMapping("/all")
+    @GetMapping("/todo/all")
     public List<Todo> allTodo(){
         return todoRepository.findAll();
     }
