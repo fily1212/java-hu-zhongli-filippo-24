@@ -71,7 +71,8 @@ public class TodoController {
         todoRepository.delete(todo);
 
         // Metodo 2
-       // todoRepository.deleteById(Integer.parseInt(id));
+    //    if(todoRepository.existsById(Integer.parseInt(id)))
+    //       todoRepository.deleteById(Integer.parseInt(id));
         return "OK";
 
     }
