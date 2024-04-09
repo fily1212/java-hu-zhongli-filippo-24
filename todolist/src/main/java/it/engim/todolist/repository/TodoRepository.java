@@ -4,8 +4,10 @@ import it.engim.todolist.model.Todo;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TodoRepository extends CrudRepository<Todo, Integer> {
     List<Todo> findAll();
-    Todo findById(int id);
+    Optional<Todo> findById(int id);
+
 }

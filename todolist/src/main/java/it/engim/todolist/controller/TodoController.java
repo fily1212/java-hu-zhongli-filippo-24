@@ -4,13 +4,11 @@ import it.engim.todolist.model.Todo;
 import it.engim.todolist.payload.TodoAddRequest;
 import it.engim.todolist.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class TodoController {
@@ -38,4 +36,44 @@ public class TodoController {
     public List<Todo> allTodo(){
         return todoRepository.findAll();
     }
+
+
+    @GetMapping("/todo/completed/{id}")
+    public String setCompleted(@PathVariable String id) {
+        Optional<Todo> todoOp = todoRepository.findById(Integer.parseInt(id));
+        Todo todo;
+        if(todoOp.isPresent()) {
+            todo = todoOp.get();
+            todo.setCompletato(true);
+            todoRepository.save(todo);
+        }
+        // Metodo + elegante:
+//        Todo todo2 = todoRepository.findById(Integer.parseInt(id)).orElseThrow();
+//         todo2.setCompletato(true);
+//        todoRepository.save(todo2);
+        return "OK";
+    }
+
+    @GetMapping("/todo/uncompleted/{id}")
+    public String setUncompleted(@PathVariable String id) {
+        Todo todo = todoRepository.findById(Integer.parseInt(id)).orElseThrow();
+        todo.setCompletato(true);
+        todoRepository.save(todo);
+        return "OK";
+    }
+
+
+    @GetMapping("/todo/remove/{id}")
+    public String removeTodo(@PathVariable String id) {
+
+        // Metodo 1
+        Todo todo = todoRepository.findById(Integer.parseInt(id)).orElseThrow();
+        todoRepository.delete(todo);
+
+        // Metodo 2
+       // todoRepository.deleteById(Integer.parseInt(id));
+        return "OK";
+
+    }
+
 }
