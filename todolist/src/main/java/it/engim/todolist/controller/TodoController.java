@@ -6,10 +6,7 @@ import it.engim.todolist.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 public class TodoController {
@@ -50,7 +47,7 @@ public class TodoController {
         }
         //
        // List<Todo> listAlta2 = list.stream().filter(todo -> todo.getPriorita().equals(Todo.Priorita.ALTA)).toList();
-      //  list.stream().filter(x->x%2==0).sorted()
+        list.stream().sorted(Comparator.comparing(Todo::getDataScadenza).thenComparing(Todo::getPriorita)).toList();
         return listAlta;
     }
 
