@@ -6,6 +6,7 @@ import it.engim.todolist.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -35,6 +36,22 @@ public class TodoController {
     @GetMapping("/todo/all")
     public List<Todo> allTodo(){
         return todoRepository.findAll();
+    }
+
+    @GetMapping("/todo/alta")
+    public List<Todo> prioritaAltaTodo(){
+        List<Todo> list = todoRepository.findAll();
+        List<Todo> listAlta = new ArrayList<>();
+        for(Todo t : list){
+            if(t.getPriorita().equals(Todo.Priorita.ALTA))
+                listAlta.add(t);
+//    condizione per controllare se una data è prima di oggi
+//            if(t.getDataScadenza().compareTo(new Date()) < 0)
+        }
+        //
+       // List<Todo> listAlta2 = list.stream().filter(todo -> todo.getPriorita().equals(Todo.Priorita.ALTA)).toList();
+      //  list.stream().filter(x->x%2==0).sorted()
+        return listAlta;
     }
 
 
