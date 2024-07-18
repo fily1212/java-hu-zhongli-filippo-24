@@ -53,7 +53,7 @@ public class LineaRepository {
                 fermata = f;
         }
 
-        Linea linea = linee.stream().filter(l->l.getId() == lineaId).toList().getFirst();
+        Linea linea = linee.stream().filter(l->l.getId() == lineaId).toList().get(0);
         linea.getFermate().add(fermata);
     }
 

@@ -15,7 +15,7 @@ public class PreventivoRepository {
         List<Preventivo> preventivi = new ArrayList<>();
         try{
             Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            PreparedStatement stmt = conn.prepareStatement("select id, nome, zona from fermate");
+            PreparedStatement stmt = conn.prepareStatement("select * from preventivi");
             ResultSet rs = stmt.executeQuery();
             while(rs.next()){
 
