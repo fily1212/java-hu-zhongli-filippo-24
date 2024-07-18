@@ -5,28 +5,28 @@ import java.util.Collections;
 import java.util.List;
 
 public class Sorteggio {
-    private List<Persona> nomi = new ArrayList<>();
+    private List<Persona> persone = new ArrayList<>();
     private boolean daMischiare = true;
     private int nextName = 0;
     public void aggiungi(Persona nome){
-        nomi.add(nome);
+        persone.add(nome);
         daMischiare = true;
         nextName = 0;
     }
 
     public Persona next(){
         if(daMischiare){
-            Collections.shuffle(nomi);
+            Collections.shuffle(persone);
             daMischiare = false;
             nextName = 0;
         }
-        if(nextName >= nomi.size())
+        if(nextName >= persone.size())
             throw new IndexOutOfBoundsException("Nomi finiti");
-        return nomi.get(nextName++);
+        return persone.get(nextName++);
     }
 
-    public List<Persona> getNomi() {
-        return nomi;
+    public List<Persona> getPersone() {
+        return persone;
     }
 
     public boolean isDaMischiare() {
